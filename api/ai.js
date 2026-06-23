@@ -43,7 +43,8 @@ export default async function handler(req, res) {
     curriculo: "Crie/melhore um currículo profissional com base nas informações, em português.",
     chat: "Você é um assistente útil. Responda em português do Brasil.",
   };
-  const sys = system || PROMPTS[tool] || PROMPTS.chat;
+  const sys = (system || PROMPTS[tool] || PROMPTS.chat) +
+    " Responda SEMPRE em português do Brasil, de forma direta e final, SEM mostrar seu raciocínio, sem '<think>' e sem explicar o que vai fazer. Devolva apenas o resultado solicitado.";
 
   try {
     const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {

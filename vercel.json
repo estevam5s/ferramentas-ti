@@ -1,0 +1,5 @@
+{
+  "buildCommand": "GENERATE_SOURCEMAP=false NODE_OPTIONS=--openssl-legacy-provider npm run build",
+  "outputDirectory": "build",
+  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
+}
